@@ -401,7 +401,8 @@ const connectWallet = async () => {
       };
     }
   } else {
-    $(".alert").text("Please install metamask");
+    
+    $(".alert").text("Please install metamask!");
   }
 };
 
@@ -417,16 +418,14 @@ const getCurrentWalletConnected = async () => {
           status: "👆🏽 Write a message in the text-field above.",
         };
       } else {
-        return {
-          address: "",
-          status: "🦊 Connect to Metamask using the top right button.",
-        };
+        $(".alert").text(
+          " Connect Metamask using top right button please!"
+        );
       }
     } catch (err) {
-      return {
-        address: "",
-        status: "😥 " + err.message,
-      };
+      $(".alert").text(
+        `${err.message}`
+      );
     }
   } else {
     $(".alert").text(
