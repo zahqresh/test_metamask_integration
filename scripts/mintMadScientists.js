@@ -401,7 +401,6 @@ const connectWallet = async () => {
       };
     }
   } else {
-    $('.alert').show();
     $(".alert").text("Please install metamask!");
   }
 };
