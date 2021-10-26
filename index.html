@@ -72,8 +72,12 @@
   <body>
     <div class="alert "></div>
     <div class="container">
-    <input type="number" class="mint-number" max="12" min="0"> <br>
-      <button class="btn" onclick="simpleMint()">Mint</button>
+      <button onclick="minus()">minus</button>
+      <span class="number">1</span>
+      <button onclick="plus()">plus</button>
+    <!-- <input type="number" class="mint-number" max="12" min="0"> <br> -->
+      <!-- <button class="btn" onclick="simpleMint()">Mint</button>
+      <button class="btn" onclick="preMint()">Presale Mint</button> -->
       <button class="btn" onclick="preMint()">Presale Mint</button>
     </div>
     <script src="./scripts/mintMadScientists.js"></script>
@@ -85,11 +89,39 @@
             mintNFT(Number(num))
         }
         function preMint(){
-            let num = document.querySelector('.mint-number').value;
+            let num =  $('.number').text();
+            
             PreSaleMint(Number(num))
         }
       connectWallet();
      
+
+      function plus(){
+        let number =  $('.number').text();
+       if(Number(number) < 12){
+        $('.number').text(`${Number(number)+Number(1)}`);   
+       }
+      
+       if(number <  1){
+        $('.number').text('1');  
+       }
+       if(number  == 12){
+        $('.number').text('12');  
+       }
+
+      }
+
+      function minus(){
+       let number =  $('.number').text();
+       if(number > 0){
+        $('.number').text(`${Number(number)-Number(1)}`);   
+       }
+      
+       if(number == 0 || number == 1){
+        $('.number').text('1');  
+       }
+      }
+
     </script>
   </body>
 </html>
