@@ -497,12 +497,11 @@ const presaleprice = 55000000000000000;
   //load smart contract
   window.contract = new web3.eth.Contract(contractABI, contractAddress);
 
-  // prepare the data for the mint call on smart contract
   const transactionParameters = {
-    from: window.ethereum.selectedAddress,
-    to: contractAddress,
-    value: web3.utils.toHex(price*PreSaleAmount),
-    data: theContract.methods.preSaleMint(web3.utils.toBN(1)).encodeABI(),
+    'from': window.ethereum.selectedAddress,
+    'to': contractAddress,
+    value: web3.utils.toHex(presaleprice*PreSaleAmount),
+    data: theContract.methods.preSaleMint(PreSaleAmount).encodeABI(), 
   };
   try {
     const txHash = await window.ethereum.request({
