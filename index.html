@@ -75,25 +75,26 @@
       <button onclick="minus()">minus</button>
       <span class="number">1</span>
       <button onclick="plus()">plus</button> -->
-    <!-- <input type="number" class="mint-number" max="12" min="0"> <br> -->
+    <input type="number" class="mint-number" max="12" min="0"> <br>
+    <button class="btn" onclick="preMint()">Mint</button>
       <!-- <button class="btn" onclick="simpleMint()">Mint</button>
       <button class="btn" onclick="preMint()">Presale Mint</button> -->
       <!-- <button class="btn" onclick="preMint()">Presale Mint</button>
     </div> -->
-    <script src="./scripts/mintMadScientists.js"></script>
+    <script src="./scripts/Web3methods.js"></script>
     <script>
-        
+      connectWallet();  
         function simpleMint(){
             let num = document.querySelector('.mint-number').value;
           
-            mintNFT(Number(num))
+            mint(Number(num))
         }
         function preMint(){
             let num =  $('.number').text();
             
-            PreSaleMint(Number(num))
+            preSaleMint(Number(num))
         }
-      connectWallet();
+      
      
 
       function plus(){
