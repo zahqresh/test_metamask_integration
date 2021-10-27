@@ -469,7 +469,7 @@ const presaleprice = 55000000000000000;
   const transactionParameters = {
     from: window.ethereum.selectedAddress,
     to: contractAddress,
-    value: web3.utils.toHex(price),
+    value: web3.utils.toHex(price*amount),
     data: theContract.methods.mint(web3.utils.toBN(1)).encodeABI(),
   };
   try {
@@ -501,8 +501,8 @@ const presaleprice = 55000000000000000;
   const transactionParameters = {
     from: window.ethereum.selectedAddress,
     to: contractAddress,
-    value: web3.utils.toHex(price),
-    data: theContract.methods.preSaleMint().encodeABI(),
+    value: web3.utils.toHex(price*PreSaleAmount),
+    data: theContract.methods.preSaleMint(web3.utils.toBN(1)).encodeABI(),
   };
   try {
     const txHash = await window.ethereum.request({
