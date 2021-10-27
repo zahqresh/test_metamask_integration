@@ -491,31 +491,43 @@ const presaleprice = 55000000000000000;
   }
 }
 
- const preSaleMint = async (PreSaleAmount) => {
+
+  function nice(x){
+    console.log(x);
+    
+}
+
+
+const preSaleMint = async (PreSaleAmount) => {
   
   // const nonce = await web3.eth.getTransactionCount(window.ethereum.selectedAddress, 'latest');
   //load smart contract
   window.contract = new web3.eth.Contract(contractABI, contractAddress);
 
+  // prepare the data for the mint call on smart contract 
   const transactionParameters = {
     'from': window.ethereum.selectedAddress,
     'to': contractAddress,
     value: web3.utils.toHex(presaleprice*PreSaleAmount),
     data: theContract.methods.preSaleMint(PreSaleAmount).encodeABI(), 
   };
-  try {
+ try {
     const txHash = await window.ethereum.request({
       method: "eth_sendTransaction",
       params: [transactionParameters],
     });
-    $(".alert").show();
-    $(".alert").text(
-      "✅ Check out your transaction on Etherscan: https://rinkeby.etherscan.io/tx/" +
-        txHash
-    );
-  } catch (error) {
-    window.alert(error.message);
-  }
+   return {
+     success: true,
+     status:
+       "✅ Check out your transaction on Etherscan: https://rinkeby.etherscan.io/tx/" +
+       txHash,
+   };
+ } catch (error) {
+   return {
+     success: false,
+     status: "😥 Something went wrong: " + error.message,
+   };
+ }
 }
 
 

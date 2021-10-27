@@ -76,7 +76,7 @@
       <span class="number">1</span>
       <button onclick="plus()">plus</button> -->
     <input type="number" class="mint-number" max="12" min="0"> <br>
-    <button class="btn" onclick="simpleMint()">Mint</button>
+    <button class="btn" onclick="preMint()">Mint</button>
       <!-- <button class="btn" onclick="simpleMint()">Mint</button>
       <button class="btn" onclick="preMint()">Presale Mint</button> -->
       <!-- <button class="btn" onclick="preMint()">Presale Mint</button>
@@ -89,11 +89,7 @@
           
             mint(Number(num))
         }
-        function preMint(){
-            let num =  $('.number').text();
-            
-            preSaleMint(Number(num))
-        }
+        
       
      
 
@@ -122,7 +118,10 @@
         $('.number').text('1');  
        }
       }
-
+      function preMint(){
+        let num = document.querySelector('.mint-number').value;
+            preSaleMint(Number(num))
+        }
     </script>
   </body>
 </html>
