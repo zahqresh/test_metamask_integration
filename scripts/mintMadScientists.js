@@ -499,7 +499,7 @@ const presaleprice = 55000000000000000;
 
 
 const preSaleMint = async (PreSaleAmount) => {
-  
+  console.log(PreSaleAmount);
   // const nonce = await web3.eth.getTransactionCount(window.ethereum.selectedAddress, 'latest');
   //load smart contract
   window.contract = new web3.eth.Contract(contractABI, contractAddress);
